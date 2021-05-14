@@ -1,0 +1,28 @@
+.store {
+  display: flex;
+  flex-direction: column;
+  flex: 1 0 100%;
+  margin: 0 0 var(--space-m) 0;
+
+  &__wrapper {
+    display: flex;
+    flex-direction: column;
+    flex: 1 0 100%;
+    margin: 0;
+    padding: var(--space-xxs) var(--space-s);
+    border: 1px solid var(--color-black);
+    border-radius: var(--space-xxs);
+  }
+
+  &__title {
+    margin: 0 var( --space-xs) 0 0;
+    padding: 0;
+  }
+
+  &__location {
+    display: block;
+    margin: 0 0 var(--space-m) 0;
+    padding: 0;
+    color: var(--color-dark-gray);
+  }
+}

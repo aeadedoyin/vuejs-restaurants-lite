@@ -1,0 +1,17 @@
+.recipe-form {
+  display: flex;
+  flex-direction: column;
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+
+    &-input {
+      border: 1px solid var(--color-primary);
+      box-shadow: none;
+      text-shadow: none;
+      margin: 0 0 var(--space-m) 0;
+      appearance: none;
+    }
+  }
+}

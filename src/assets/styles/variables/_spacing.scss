@@ -1,0 +1,14 @@
+:root {
+  // Base spacing
+  --space-xxs: 5px;
+  --space-xs: 10px;
+  --space-s: 15px;
+  --space-m: 20px;
+  --space-l: 25px;
+  --space-xl: 30px;
+  --space-xxl: 35px;
+
+  // Style guide spacing
+  --space-base: var(--space-s);
+  --boxed-max-width: 1200px;
+}
