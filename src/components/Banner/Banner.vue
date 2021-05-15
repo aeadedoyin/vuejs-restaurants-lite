@@ -1,23 +1,38 @@
 <template>
-  <div class="banner" :class="bannerStyles">
+  <div
+    class="banner"
+    :class="bannerStyles">
     <div class="banner__wrapper">
-      <div class="banner__image" v-if="backgroundMedia.type === 'image'">
-        <img class="banner__image-asset" :src="backgroundMedia.src" :alt="text" :title="text" />
+      <div
+        v-if="backgroundMedia.type === 'image'"
+        class="banner__image">
+        <img
+          :alt="text"
+          class="banner__image-asset"
+          :src="backgroundMedia.src"
+          :title="text" />
       </div>
-      <div class="banner__video" v-if="backgroundMedia.type === 'video'">
-        <video class="banner__video-asset" autoplay muted>
-          <source :src="backgroundMedia.src" type="video/mp4" />
+      <div
+        v-if="backgroundMedia.type === 'video'"
+        class="banner__video">
+        <video
+          autoplay
+          class="banner__video-asset"
+          muted>
+          <source
+            :src="backgroundMedia.src"
+            type="video/mp4" />
         </video>
       </div>
-      <div class="banner__text" v-if="text">
+      <div
+        v-if="text"
+        class="banner__text">
         <span class="banner__text-message">{{ text }}</span>
       </div>
     </div>
   </div>
 </template>
-<style lang="scss">
-@import './Banner.scss';
-</style>
+
 <script>
 export default {
   name: 'Banner',
@@ -58,7 +73,7 @@ export default {
         'banner__text-vertical-top': this.textVerticalAlignment === 'top',
         'banner__text-vertical-center': this.textVerticalAlignment === 'center',
         'banner__text-vertical-bottom': this.textVerticalAlignment === 'bottom',
-      };
+      }
     }
   }
 }

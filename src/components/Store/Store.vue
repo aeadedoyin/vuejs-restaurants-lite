@@ -1,17 +1,21 @@
 <template>
-  <div class="store" v-if="isVisible">
+  <div
+    v-if="isVisible"
+    class="store">
     <div class="store__wrapper">
-      <h2 class="store__title">{{ title }}</h2>
+      <h2 class="store__title">
+        {{ title }}
+      </h2>
       <span class="store__location">{{ location }}</span>
-      <img :src="photo" :alt="title" :title="title" />
+      <img
+        :alt="title"
+        :src="photo"
+        :title="title" />
     </div>
   </div>
 </template>
-<style lang="scss">
-@import './Store.scss';
-</style>
-<script>
 
+<script>
 export default {
   name: 'Store',
   props: {
@@ -30,8 +34,12 @@ export default {
   },
   computed: {
     isVisible () {
-      return !!this.title && !!this.location;
+      return !!this.title && !!this.location
     }
   }
 }
 </script>
+
+<style lang="scss">
+@import './Store.scss';
+</style>

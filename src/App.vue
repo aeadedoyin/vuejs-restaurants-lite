@@ -2,15 +2,13 @@
   <div id="app">
     <Header />
     <div class="container">
-      <router-view/>
+      <router-view />
     </div>
   </div>
 </template>
-<style lang="scss">
-@import '@/assets/styles/styles.scss';
-</style>
+
 <script>
-import Header from '@/components/Header/Header';
+import Header from '@/components/Header/Header'
 
 export default {
   name: 'App',
@@ -18,4 +16,9 @@ export default {
     Header
   }
 }
+
 </script>
+
+<style lang="scss">
+@import '@/assets/styles/styles.scss';
+</style>
