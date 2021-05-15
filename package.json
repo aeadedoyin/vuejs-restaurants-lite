@@ -12,32 +12,33 @@
     "axios": "^0.21.1",
     "core-js": "^3.6.5",
     "lodash": "^4.17.21",
-    "vue": "^2.6.11",
-    "vue-router": "^3.2.0",
-    "vuex": "^3.6.2"
+    "vue": "^3.0.0-beta.1",
+    "vue-router": "^4.0.0-alpha.6",
+    "vuex": "^4.0.0-alpha.1"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "~4.5.0",
     "@vue/cli-plugin-eslint": "~4.5.0",
     "@vue/cli-plugin-router": "~4.5.0",
     "@vue/cli-service": "~4.5.0",
-    "autoprefixer": "^10.2.5",
+    "@vue/compiler-sfc": "^3.0.0-beta.1",
+    "autoprefixer": "^9",
     "babel-eslint": "^10.1.0",
     "eslint": "^7.26.0",
     "eslint-plugin-vue": "^7.9.0",
-    "postcss": "^8.2.15",
+    "postcss": "^7",
     "sass": "^1.32.12",
     "sass-loader": "^10.1.1",
-    "tailwindcss": "^2.1.2",
-    "vue-template-compiler": "^2.6.11"
+    "tailwindcss": "npm:@tailwindcss/postcss7-compat",
+    "vue-cli-plugin-vue-next": "~0.1.4"
   },
   "browserslist": [
     "> 1%",
     "last 2 versions",
     "not dead"
   ],
+  "engineStrict": true,
   "engines": {
     "node": ">=14.16.0"
-  },
-  "engineStrict": true
+  }
 }

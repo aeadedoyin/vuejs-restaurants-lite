@@ -1,6 +1,5 @@
 export default {
-  install(Vue) {
-    Vue.prototype.title = 'VueJS Restaurant Challenge'
+  install(app) {
+    app.config.globalProperties.$title = 'VueJS Restaurant Challenge'
   }
 }
-

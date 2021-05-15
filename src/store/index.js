@@ -1,7 +1,4 @@
-import Vue from 'vue'
 import Vuex from 'vuex'
-
-Vue.use(Vuex)
 
 const state = () => ({
   restaurants: ['Hey'],
@@ -24,7 +21,7 @@ const mutations = {
 const actions = {
 }
 
-export default () => new Vuex.Store({
+export default () => Vuex.createStore({
   state,
   getters,
   mutations,
