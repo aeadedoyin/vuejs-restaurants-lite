@@ -1,15 +1,18 @@
 <template>
   <div
     class="flex h-screen">
-    <div class="flex flex-col max-w-xl">
+    <div class="flex flex-col max-w-3xl mx-auto">
       <h1 class="text-4xl font-bold">
         Company Inc. Restaurant
       </h1>
       <p>
         {{ welcomeMessage }}
       </p>
+      <h1 class="text-xl font-medium">
+        Restaurants
+      </h1>
       <hr>
-      <Header />
+      <Header class="w-full" />
       <StoreList
         :stores="stores" />
     </div>

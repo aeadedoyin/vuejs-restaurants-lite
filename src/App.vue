@@ -13,6 +13,19 @@
 
 export default {
   name: 'App',
+
+  mounted () {
+    this.fetchJoke()
+  },
+
+  methods: {
+    fetchJoke() {
+      this.$store.dispatch('fetchJoke')
+        .then(response => {
+          this.jokeOfDay = response.data.contents.jokes[0]
+        })
+    }
+  },
 }
 
 </script>

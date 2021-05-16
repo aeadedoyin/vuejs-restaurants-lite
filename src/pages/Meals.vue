@@ -1,19 +1,19 @@
 <template>
-  <div class="flex flex-col justify-center h-screen my-auto">
-    <div class="flex">
-      <div class="flex flex-col pl-8 space-y-1">
-        <h1 class="text-4xl font-bold">
-          Company Inc. Restaurant
-        </h1>
-        <h1 class="text-2xl font-bold">
-          Pasta Carbonara Meals
-        </h1>
-        <div class="w-full max-w-md">
-          <Header />
-          <div class="bg-white border border-red-300 shadow-md rounded p-3 my-2">
-            <RecipeForm :ingredients="secretIngredients" />
-          </div>
-        </div>
+  <div
+    class="flex h-screen">
+    <div class="flex flex-col w-full max-w-3xl mx-auto">
+      <h1 class="text-4xl font-bold">
+        Company Inc. Restaurant
+      </h1>
+      <p>
+        {{ welcomeMessage }}
+      </p>
+      <h1 class="text-xl font-medium">
+        Pasta Carbonara Meals
+      </h1>
+      <Header class="w-full" />
+      <div class="w-full">
+        <RecipeForm :ingredients="secretIngredients" />
       </div>
     </div>
   </div>
@@ -42,6 +42,18 @@ export default {
         oil: 100,
       },
     }
+  },
+
+  computed: {
+    welcomeMessage () {
+      return 'Welcome to our meals calculator! Your local time is: ' + this.currentTime
+    }
+  },
+
+  mounted() {
+    setInterval(() => {
+      this.currentTime = new Date().toLocaleString([], { hour12: true })
+    }, 1000)
   },
 }
 </script>

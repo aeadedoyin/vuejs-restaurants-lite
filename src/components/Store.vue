@@ -1,16 +1,21 @@
 <template>
   <div
     v-if="isVisible"
-    class="store">
-    <div class="store__wrapper">
-      <h2 class="store__title">
+    class="border rounded-md p-2 m-2">
+    <div>
+      <h2>
         {{ title }}
       </h2>
-      <span class="store__location">{{ location }}</span>
+      <span class="italic font-bold text-sm">{{ location }}</span>
       <img
         :alt="title"
         :src="photo"
         :title="title" />
+
+      <p class="text-xs py-2 border-t">
+        <span class="font-bold">Joke of Day</span>
+        {{ joke }}
+      </p>
     </div>
   </div>
 </template>
@@ -18,7 +23,12 @@
 <script>
 export default {
   name: 'Store',
+
   props: {
+    joke: {
+      type: String,
+      default: null
+    },
     title: {
       type: String,
       default: null
@@ -32,6 +42,7 @@ export default {
       default: null
     }
   },
+
   computed: {
     isVisible () {
       return !!this.title && !!this.location

@@ -25,6 +25,8 @@ export default {
   data() {
     return {
       currentTime: new Date().toLocaleString([], { hour12: true }),
+      jokesOfDay: '',
+      jokesSize: 10
     }
   },
 
@@ -38,6 +40,8 @@ export default {
     setInterval(() => {
       this.currentTime = new Date().toLocaleString([], { hour12: true })
     }, 1000)
+
+
   },
 }
 </script>
