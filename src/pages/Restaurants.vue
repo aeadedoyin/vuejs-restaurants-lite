@@ -1,36 +1,51 @@
 <template>
-  <div class="page page__stores">
-    <p>{{ welcomeMessage }}</p>
-    <div class="pages__stores-list">
-      <StoreList :stores="stores" />
+  <div
+    class="flex h-screen">
+    <div class="flex flex-col max-w-xl">
+      <h1 class="text-4xl font-bold">
+        Company Inc. Restaurant
+      </h1>
+      <p>
+        {{ welcomeMessage }}
+      </p>
+      <hr>
+      <Header />
+      <StoreList
+        :stores="stores" />
     </div>
   </div>
 </template>
 
 <script>
-import StoreList from '@/components/StoreList/StoreList'
+import StoreList from '@/components/StoreList'
+import Header from '@/components/Header'
 const stores = require('@/assets/stores/stores.json')
 
 export default {
   name: 'Stores',
+
   components: {
-    StoreList
+    StoreList,
+    Header,
   },
+
   data () {
     return {
       currentTime: new Date().toLocaleString([], { hour12: true }),
-      stores
+      stores,
     }
   },
+
   computed: {
     welcomeMessage () {
       return 'Welcome to our restaurants list! Your local time is: ' + this.currentTime
     }
   },
+
   mounted() {
     setInterval(() => {
       this.currentTime = new Date().toLocaleString([], { hour12: true })
     }, 1000)
-  }
+  },
 }
 </script>

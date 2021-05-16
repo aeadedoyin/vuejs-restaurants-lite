@@ -1,24 +1,22 @@
 <template>
-  <div id="app">
-    <Header />
-    <div class="container">
+  <div
+    id="app"
+    class="bg-cover">
+    <div
+      class="container mx-auto">
       <router-view />
     </div>
   </div>
 </template>
 
 <script>
-import Header from '@/components/Header/Header'
 
 export default {
   name: 'App',
-  components: {
-    Header
-  }
 }
 
 </script>
 
 <style lang="scss">
-@import '@/assets/styles/styles.scss';
+// @import '@/assets/styles/styles.scss';
 </style>

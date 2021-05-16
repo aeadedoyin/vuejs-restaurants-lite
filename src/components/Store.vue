@@ -39,7 +39,3 @@ export default {
   }
 }
 </script>
-
-<style lang="scss">
-@import './Store.scss';
-</style>
