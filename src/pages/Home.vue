@@ -1,7 +1,7 @@
 <template>
   <div class="flex flex-col justify-center h-screen my-auto px-8 md:px-0">
     <div class="flex">
-      <div class="flex flex-col space-y-1">
+      <div class="flex flex-col">
         <CompanyHeader :welcome-message="welcomeMessage" />
         <Header />
       </div>

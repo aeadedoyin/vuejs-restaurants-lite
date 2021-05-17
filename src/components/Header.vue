@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-red-400 py-1 px-2 rounded">
+  <div class="bg-red-400 py-2 px-3 my-4 rounded">
     <ul class="flex flex-col md:flex-row justify-between md:whitespace-nowrap space-y-1 md:space-x-1">
       <li
         class="hover:bg-white dark:hover:text-black border-b border-white px-2 transition-all duration-200"

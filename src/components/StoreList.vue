@@ -4,8 +4,8 @@
       Here you can find all of our restaurants. We have {{ storesCount }} stores right now!
     </p>
     <hr class="my-2">
-    <div class="flex justify-center">
-      <form class="form w-1/2">
+    <div class="flex justify-center px-2">
+      <form class="form w-full md:w-1/2">
         <input
           v-model="storeFilter"
           placeholder="Search store"
@@ -14,12 +14,12 @@
     </div>
     <hr class="my-2">
     <div
-      v-if="stores"
-      class="w-full flex flex-wrap px-2">
+      v-if="stores.length > 0"
+      class="w-full flex flex-wrap px-1">
       <div
         v-for="store in paginatedStores"
         :key="store.id"
-        class="w-1/2 md:w-1/4 px-2">
+        class="w-1/2 px-1 md:w-1/4">
         <Store
           class="store-list__item"
           :joke="jokeOfDay"
@@ -27,6 +27,11 @@
           :photo="store.image"
           :title="store.name" />
       </div>
+    </div>
+    <div
+      v-else
+      class="h-full flex flex-col justify-center">
+      <div class="mx-auto spinner"></div>
     </div>
     <hr class="my-2">
     <div class="flex justify-center">
