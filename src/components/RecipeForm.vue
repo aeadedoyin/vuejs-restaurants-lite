@@ -101,7 +101,7 @@
       <div class="font-bold">
         Joke of Day!
       </div>
-      <div>{{ jokeOfDay.joke.text }}</div>
+      <div>{{ jokeOfDay }}</div>
     </div>
   </div>
 </template>
@@ -124,7 +124,7 @@ export default {
 
   data() {
     return {
-      jokeOfDay: this.$store.getters.getJokeOfDay,
+      jokeOfDay: this.$store.getters.getJokeOfDay.joke?.text,
       recipeForm: {},
       meals: 0,
       showForm: true
