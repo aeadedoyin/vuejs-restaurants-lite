@@ -2,7 +2,8 @@ import { createStore } from 'vuex'
 import axios from 'axios'
 
 const state = () => ({
-  jokeofDay: localStorage.getItem('jokeOfDay') || ''
+  jokeofDay: localStorage.getItem('jokeOfDay') || '',
+  theme: localStorage.getItem('theme') || 'light'
 })
 
 const getters = {
@@ -10,8 +11,11 @@ const getters = {
     try {
       return JSON.parse(state.jokeofDay)
     } catch (error) {
-      console.log(error)
+      return ''
     }
+  },
+  getTheme: state => {
+    return state.theme
   }
 }
 
@@ -19,6 +23,10 @@ const mutations = {
   updateJokeOfDay: (state, payload) => {
     state.jokeofDay = payload
     localStorage.setItem('jokeOfDay', JSON.stringify(payload))
+  },
+  updateTheme(state, payload) {
+    state.theme = payload
+    localStorage.setItem('theme', payload)
   }
 }
 
@@ -37,6 +45,19 @@ const actions = {
         })
     })
   },
+  fetchStores() {
+    return new Promise((resolve, reject) => {
+      axios
+        .get('/stores/stores.json')
+        .then((response) => {
+          // Push response forward for external usecase
+          resolve(response)
+        })
+        .catch((error) => {
+          reject(error)
+        })
+    })
+  }
 }
 
 const store = createStore({

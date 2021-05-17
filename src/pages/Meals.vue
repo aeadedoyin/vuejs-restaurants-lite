@@ -1,14 +1,9 @@
 <template>
   <div
-    class="flex h-screen">
+    class="flex h-screen py-4 px-8 md:px-0">
     <div class="flex flex-col w-full max-w-3xl mx-auto">
-      <h1 class="text-4xl font-bold">
-        Company Inc. Restaurant
-      </h1>
-      <p>
-        {{ welcomeMessage }}
-      </p>
-      <h1 class="text-xl font-medium">
+      <CompanyHeader :welcome-message="welcomeMessage" />
+      <h1 class="text-xl font-medium my-2">
         Pasta Carbonara Meals
       </h1>
       <Header class="w-full" />
@@ -22,13 +17,15 @@
 <script>
 import RecipeForm from '@/components/RecipeForm'
 import Header from '@/components/Header'
+import CompanyHeader from '@/components/CompanyHeader'
 
 export default {
   name: 'Meals',
 
   components: {
     RecipeForm,
-    Header
+    Header,
+    CompanyHeader,
   },
   
   data() {
@@ -46,14 +43,8 @@ export default {
 
   computed: {
     welcomeMessage () {
-      return 'Welcome to our meals calculator! Your local time is: ' + this.currentTime
+      return 'Welcome to our meals calculator!'
     }
-  },
-
-  mounted() {
-    setInterval(() => {
-      this.currentTime = new Date().toLocaleString([], { hour12: true })
-    }, 1000)
   },
 }
 </script>

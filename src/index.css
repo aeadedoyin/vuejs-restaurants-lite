@@ -11,7 +11,7 @@
 }
 
 .form label {
-  @apply block text-gray-700 text-sm font-bold mb-1;
+  @apply block text-gray-700 dark:text-white text-sm font-bold mb-1;
 }
 
 .form input {

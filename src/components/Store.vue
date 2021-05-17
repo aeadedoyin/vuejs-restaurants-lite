@@ -9,7 +9,7 @@
       <span class="italic font-bold text-sm">{{ location }}</span>
       <img
         :alt="title"
-        :src="photo"
+        :src="'https://via.placeholder.com/300?text=' + title"
         :title="title" />
 
       <p class="text-xs py-2 border-t">

@@ -13,14 +13,16 @@
       </form>
     </div>
     <hr class="my-2">
-    <div class="w-full flex flex-wrap px-2">
+    <div
+      v-if="stores"
+      class="w-full flex flex-wrap px-2">
       <div
-        v-for="store in storesWithImages"
+        v-for="store in paginatedStores"
         :key="store.id"
         class="w-1/2 md:w-1/4 px-2">
         <Store
           class="store-list__item"
-          :joke="jokeOfDay.joke.text"
+          :joke="jokeOfDay"
           :location="store.location"
           :photo="store.image"
           :title="store.name" />
@@ -41,7 +43,6 @@
 <script>
 import Store from '@/components/Store'
 import Pagination from '@/components/Pagination'
-import _ from 'lodash'
 
 export default {
   name: 'StoreList',
@@ -55,16 +56,13 @@ export default {
     totalStores: {
       type: Number,
       default: 0
-    },
-    stores: {
-      type: Array,
-      default: () => []
     }
   },
 
   data() {
     return {
-      jokeOfDay: this.$store.getters.getJokeOfDay,
+      stores: [],
+      jokeOfDay: this.$store.getters.getJokeOfDay.joke?.text,
       storeFilter: '',
       perPage: 20,
       currentPage: 1
@@ -79,19 +77,11 @@ export default {
     },
 
     paginatedStores() {
-      // human-readable page numbers usually start with 1, so we reduce 1 in the first argument
       return this.filteredStores.slice((this.currentPage - 1) * this.perPage, this.currentPage * this.perPage)
     },
 
-    storesWithImages () {
-      return _.map(this.paginatedStores, function (store) {
-        store['image'] = 'https://via.placeholder.com/300?text=' + store.name
-        return store
-      })
-    },
-
     storesCount () {
-      return _.size(this.stores)
+      return this.stores.length
     }
   },
 
@@ -99,6 +89,13 @@ export default {
     storeFilter() {
       this.currentPage = 1
     }
+  },
+
+  mounted () {
+    this.$store.dispatch('fetchStores')
+      .then(response => {
+        this.stores = response.data
+      })
   },
 
   methods: {

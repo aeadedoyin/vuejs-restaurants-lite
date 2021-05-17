@@ -1,11 +1,8 @@
 <template>
-  <div class="flex flex-col justify-center h-screen my-auto">
+  <div class="flex flex-col justify-center h-screen my-auto px-8 md:px-0">
     <div class="flex">
-      <div class="flex flex-col pl-8 space-y-1">
-        <h1 class="text-4xl font-bold">
-          Company Inc. Restaurant
-        </h1>
-        <p>{{ welcomeMessage }}</p>
+      <div class="flex flex-col space-y-1">
+        <CompanyHeader :welcome-message="welcomeMessage" />
         <Header />
       </div>
     </div>
@@ -14,34 +11,20 @@
 
 <script>
 import Header from '@/components/Header'
+import CompanyHeader from '@/components/CompanyHeader'
 
 export default {
   name: 'Home',
 
   components: {
     Header,
-  },
-
-  data() {
-    return {
-      currentTime: new Date().toLocaleString([], { hour12: true }),
-      jokesOfDay: '',
-      jokesSize: 10
-    }
+    CompanyHeader,
   },
 
   computed: {
     welcomeMessage() {
-      return 'Welcome! Your local time is: ' + this.currentTime
+      return 'Welcome!'
     },
-  },
-
-  mounted() {
-    setInterval(() => {
-      this.currentTime = new Date().toLocaleString([], { hour12: true })
-    }, 1000)
-
-
-  },
+  }
 }
 </script>

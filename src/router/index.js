@@ -1,28 +1,28 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import Home from '@/pages/Home.vue'
-import Meals from '@/pages/Meals.vue'
-import Restaurants from '@/pages/Restaurants.vue'
 
 const routes = [
   {
     path: '/',
     name: 'Home',
-    component: Home
+    component: () =>
+      import(/* webpackChunkName: "HomePage" */ '../pages/Home.vue')
   },
   {
     path: '/meals',
     name: 'Meals',
-    component: Meals
+    component: () =>
+      import(/* webpackChunkName: "OtherPages" */ '../pages/Meals.vue')
   },
   {
     path: '/restaurants',
     name: 'Restaurants',
-    component: Restaurants
+    component: () =>
+      import(/* webpackChunkName: "OtherPages" */ '../pages/Restaurants.vue')
   }
 ]
 
 const router = createRouter({
-  history: createWebHistory(process.env.BASE_URL),
+  history: createWebHistory('/'),
   routes
 })
 
